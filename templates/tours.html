@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+<div class="traveltour-page-title-wrap  traveltour-style-custom traveltour-left-align">
+    <div class="traveltour-header-transparent-substitute"></div>
+    <div class="traveltour-page-title-overlay"></div>
+    <div class="traveltour-page-title-container traveltour-container">
+        <div class="traveltour-page-title-content traveltour-item-pdlr">
+            <h1 class="traveltour-page-title">Tour Classic With Detail 2 Columns</h1></div>
+    </div>
+</div>
+<div class="traveltour-page-wrapper" id="traveltour-page-wrapper">
+    <div class="gdlr-core-page-builder-body">
+        <div class="gdlr-core-pbf-wrapper ">
+            <div class="gdlr-core-pbf-background-wrap" id="div_6441_0"></div>
+            <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+                <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                    <div class="gdlr-core-pbf-element">
+                        <div class="tourmaster-tour-item clearfix  tourmaster-tour-item-style-grid tourmaster-tour-item-column-2">
+                            <div class="tourmaster-tour-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+                                {% for tours in tours %}
+                                <div class="gdlr-core-item-list  tourmaster-item-pdlr tourmaster-column-20">
+                                    <div class="tourmaster-tour-grid tourmaster-tour-frame tourmaster-price-right-title">
+                                        <div class="tourmaster-tour-thumbnail tourmaster-media-image">
+                                            <a href="{% url 'tour_single' id=tours.id %}"><img src="{{tours.featured_image.url}}" alt="" width="700" height="430" /></a>
+                                        </div>
+                                        <div class="tourmaster-tour-content-wrap gdlr-core-skin-e-background">
+                                            <h3 class="tourmaster-tour-title gdlr-core-skin-title" id="h3_6441_0"><a href="{% url 'tour_single' id=tours.id %}" >{{tours.tour_name}}</a></h3>
+                                            <div class="tourmaster-tour-price-wrap "><span class="tourmaster-tour-price"><span class="tourmaster-head">From</span><span class="tourmaster-tail">{{tours.price}}</span></span>
+                                            </div>
+                                            <div class="tourmaster-tour-info-wrap clearfix">
+                                                <div class="tourmaster-tour-info tourmaster-tour-info-duration-text "><i class="icon_clock_alt"></i>Max People - {{tours.max_people}}</div>
+                                                <div class="tourmaster-tour-info tourmaster-tour-info-availability "><i class="fa fa-calendar"></i>Availability - {{tours.availability}}</div>
+                                                <div class="tourmaster-tour-info tourmaster-tour-info-departure-location "><i class="fa fa-map-marker"></i>{{tours.tour_location}}</div>
+                                                <div class="tourmaster-tour-info tourmaster-tour-info-minimum-age "><i class="fa fa-user"></i>Min Age - {{tours.min_age}}</div>
+                                            </div>
+                                            <div class="tourmaster-tour-rating tourmaster-tour-rating-empty">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="gdlr-core-pagination  gdlr-core-style-circle gdlr-core-center-align tourmaster-item-pdlr"><span aria-current='page' class='page-numbers current'>1</span> <a class='page-numbers' href='page/2/index.html'>2</a> <a class='page-numbers' href='page/3/index.html'>3</a>
+                                <a class="next page-numbers" href="page/2/index.html"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}
