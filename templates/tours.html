@@ -1,51 +1,89 @@
 {% include 'header.html' %}
-<div class="traveltour-page-title-wrap  traveltour-style-custom traveltour-left-align">
-    <div class="traveltour-header-transparent-substitute"></div>
-    <div class="traveltour-page-title-overlay"></div>
-    <div class="traveltour-page-title-container traveltour-container">
-        <div class="traveltour-page-title-content traveltour-item-pdlr">
-            <h1 class="traveltour-page-title">Tour Classic With Detail 2 Columns</h1></div>
+{% load static %}
+ <!-- BreadCrumb Starts -->  
+ <section class="breadcrumb-main pb-20 pt-14" style="background-image: url({% static 'images/bg/bg1.jpg' %});">
+    <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url({% static 'images/shape8.png' %});"></div>
+    <div class="breadcrumb-outer">
+        <div class="container">
+            <div class="breadcrumb-content text-center">
+                <h1 class="mb-3">Tour Packages</h1>
+                <nav aria-label="breadcrumb" class="d-block">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tours</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-</div>
-<div class="traveltour-page-wrapper" id="traveltour-page-wrapper">
-    <div class="gdlr-core-page-builder-body">
-        <div class="gdlr-core-pbf-wrapper ">
-            <div class="gdlr-core-pbf-background-wrap" id="div_6441_0"></div>
-            <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                    <div class="gdlr-core-pbf-element">
-                        <div class="tourmaster-tour-item clearfix  tourmaster-tour-item-style-grid tourmaster-tour-item-column-2">
-                            <div class="tourmaster-tour-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
-                                {% for tours in tours %}
-                                <div class="gdlr-core-item-list  tourmaster-item-pdlr tourmaster-column-20">
-                                    <div class="tourmaster-tour-grid tourmaster-tour-frame tourmaster-price-right-title">
-                                        <div class="tourmaster-tour-thumbnail tourmaster-media-image">
-                                            <a href="{% url 'tour_single' id=tours.id %}"><img src="{{tours.featured_image.url}}" alt="" width="700" height="430" /></a>
-                                        </div>
-                                        <div class="tourmaster-tour-content-wrap gdlr-core-skin-e-background">
-                                            <h3 class="tourmaster-tour-title gdlr-core-skin-title" id="h3_6441_0"><a href="{% url 'tour_single' id=tours.id %}" >{{tours.tour_name}}</a></h3>
-                                            <div class="tourmaster-tour-price-wrap "><span class="tourmaster-tour-price"><span class="tourmaster-head">From</span><span class="tourmaster-tail">{{tours.price}}</span></span>
-                                            </div>
-                                            <div class="tourmaster-tour-info-wrap clearfix">
-                                                <div class="tourmaster-tour-info tourmaster-tour-info-duration-text "><i class="icon_clock_alt"></i>Max People - {{tours.max_people}}</div>
-                                                <div class="tourmaster-tour-info tourmaster-tour-info-availability "><i class="fa fa-calendar"></i>Availability - {{tours.availability}}</div>
-                                                <div class="tourmaster-tour-info tourmaster-tour-info-departure-location "><i class="fa fa-map-marker"></i>{{tours.tour_location}}</div>
-                                                <div class="tourmaster-tour-info tourmaster-tour-info-minimum-age "><i class="fa fa-user"></i>Min Age - {{tours.min_age}}</div>
-                                            </div>
-                                            <div class="tourmaster-tour-rating tourmaster-tour-rating-empty">0</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}
+    <div class="dot-overlay"></div>
+</section>
+<!-- BreadCrumb Ends --> 
+
+<!-- top Destination starts -->
+<section class="trending pt-6 pb-0 bg-lgrey">
+    <div class="container">
+        <div class="list-results d-flex align-items-center justify-content-between">
+            <div class="list-results-sort">
+                <p class="m-0">Showing 1-5 of 80 results</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% for tours in tours %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="trend-item rounded box-shadow">
+                    <div class="trend-image position-relative">
+                        <img src="{{tours.featured_image.url}}" alt="tour image" class="">
+                        <div class="color-overlay"></div>
+                    </div>
+                    <div class="trend-content p-4 pt-5 position-relative">
+                        <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                            <div class="entry-author">
+                                <i class="icon-calendar"></i>
+                                <span class="fw-bold"> {{tours.time}} Days Tours</span>
                             </div>
-                            <div class="gdlr-core-pagination  gdlr-core-style-circle gdlr-core-center-align tourmaster-item-pdlr"><span aria-current='page' class='page-numbers current'>1</span> <a class='page-numbers' href='page/2/index.html'>2</a> <a class='page-numbers' href='page/3/index.html'>3</a>
-                                <a class="next page-numbers" href="page/2/index.html"></a>
+                        </div>
+                        <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> {{tours.tour_location}}</h5>
+                        <h3 class="mb-1"><a href="{% url 'tour_single' id=tours.id %}">{{tours.tour_name}}</a></h3>
+                        <p class=" border-b pb-2 mb-2">{{tours.tour_details|truncatechars:70|safe}}</p>
+                        <div class="entry-meta">
+                            <div class="entry-author d-flex align-items-center">
+                                <p class="mb-0"><span class="theme fw-bold fs-5"> {{tours.price}}</span></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <a href="#" class="nir-btn">Load More <i class="fa fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
+<!-- top Destination ends -->
+    <!-- partner starts -->
+    <section class="our-partner pb-6 pt-6">
+        <div class="container">
+            <div class="section-title mb-6 w-75 mx-auto text-center">
+                <h4 class="mb-1 theme1">Our Partners</h4>
+                <h2 class="mb-1">Our Awesome <span class="theme">partners</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+            <div class="row align-items-center partner-in partner-slider">
+                <div class="col-md-3 col-sm-6">
+                    {% for partner in partner %}
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="{{partner.logo.url}}" alt="{{partner.name}}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- partner ends -->
 {% include 'footer.html' %}

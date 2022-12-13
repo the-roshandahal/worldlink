@@ -7,13 +7,20 @@ from django_summernote.models import Attachment
 class Description(SummernoteModelAdmin):
     summernote_fields = ('tour_details','itinerary')
 
-class SliderFields(admin.ModelAdmin):
-    list_display = ('main_text', 'order',)
+
+class BlogField(SummernoteModelAdmin):
+    summernote_fields = ('blog')
+# class SliderFields(admin.ModelAdmin):
+#     list_display = ('main_text', 'order',)
 
 admin.site.unregister(Attachment)
-admin.site.register(Slider,SliderFields)
+# admin.site.register(Slider,SliderFields)
 admin.site.register(TourCategory)
 admin.site.register(Destination)
 admin.site.register(Tour,Description)
-admin.site.register(Blog)
+admin.site.register(Blog,BlogField)
 admin.site.register(Testimonial)
+admin.site.register(Partner)
+admin.site.register(Team)
+admin.site.register(Contact)
+admin.site.register(CompanySetup)

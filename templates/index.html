@@ -1,423 +1,545 @@
 {% include 'header.html' %}
-{% load static %}
-<div class="traveltour-page-wrapper" id="traveltour-page-wrapper">
-                <div class="gdlr-core-page-builder-body">
-                    <div class="gdlr-core-pbf-wrapper " id="div_493c_0">
-                        <div class="gdlr-core-pbf-background-wrap" id="div_493c_1"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-pbf-wrapper-full-no-space">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-revolution-slider-item gdlr-core-item-pdlr gdlr-core-item-pdb "
-                                        id="div_493c_2">
-                                        <link href="https://fonts.googleapis.com/css?family=Roboto:900%2C700"
-                                            rel="stylesheet" property="stylesheet" type="text/css" media="all">
-                                        <div id="rev_slider_1_1_wrapper"
-                                            class="rev_slider_wrapper fullwidthbanner-container" data-source="gallery">
-                                            <div id="rev_slider_1_1" class="rev_slider fullwidthabanner"
-                                                style="display:none;" data-version="5.4.8">
-                                                <ul>
-                                                    {% for slider in slider %}
-                                                    <li data-index="rs-{{ forloop.counter }}" data-transition="fade"
-                                                        data-slotamount="default" data-hideafterloop="0"
-                                                        data-hideslideonmobile="off" data-easein="default"
-                                                        data-easeout="default" data-masterspeed="300"
-                                                        data-thumb="upload/slider-1-100x50.jpg" data-rotate="0"
-                                                        data-saveperformance="off" data-title="Slide" data-param1=""
-                                                        data-param2="" data-param3="" data-param4="" data-param5=""
-                                                        data-param6="" data-param7="" data-param8="" data-param9=""
-                                                        data-param10="" data-description=""> <img
-                                                            src="{{slider.image.url}}" alt="" title="slider-1"
-                                                            width="1800" height="844" data-bgposition="center center"
-                                                            data-bgfit="cover" data-bgrepeat="no-repeat"
-                                                            class="rev-slidebg" data-no-retina>
-                                                        <div class="tp-caption   tp-resizeme" id="slide-1-layer-1"
-                                                            data-x="89" data-y="center" data-voffset="10"
-                                                            data-width="['auto']" data-height="['auto']"
-                                                            data-type="text" data-responsive_offset="on"
-                                                            data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","speed":2000,"to":"o:1;","delay":450,"ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                            data-textAlign="['left','left','left','left']"
-                                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
-                                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                            style="z-index: 5; white-space: nowrap; font-size: 81px;  font-weight: 600; color: rgba(255,255,255,1);font-family:Poppins;">
-                                                            {{slider.main_text}}</div>
-                                                        <div class="tp-caption   tp-resizeme" id="slide-1-layer-2"
-                                                            data-x="90" data-y="center" data-voffset="92"
-                                                            data-width="['auto']" data-height="['auto']"
-                                                            data-type="text" data-responsive_offset="on"
-                                                            data-frames='[{"from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":690,"ease":"Power3.easeOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                            data-textAlign="['left','left','left','left']"
-                                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
-                                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                            style="z-index: 6; white-space: nowrap; font-size: 45px;  font-weight: 600; color: rgba(186,217,255,1);font-family:Poppins;">
-                                                            {{slider.second_text}}</div>
-                                                        <div class="tp-caption   tp-resizeme" id="slide-1-layer-3"
-                                                            data-x="92" data-y="center" data-voffset="138"
-                                                            data-width="['auto']" data-height="['auto']"
-                                                            data-visibility="['on','on','on','off']" data-type="text"
-                                                            data-responsive_offset="on"
-                                                            data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":880,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"}]'
-                                                            data-textAlign="['left','left','left','left']"
-                                                            data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
-                                                            data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                                            style="z-index: 7; white-space: nowrap; font-size: 18px;  font-weight: 400; color: rgba(218,229,255,1);font-family:Poppins;">
-                                                            {{slider.third_text}}</div>
-
-                                                            {% if slider.custom_url %}
-                                                            <a href="{{slider.custom_url}}" target="_blank"><div class="tp-caption rev-btn  tp-resizeme"
-                                                            id="slide-1-layer-4" data-x="94" data-y="center"
-                                                            data-voffset="200" data-width="['auto']"
-                                                            data-height="['auto']" data-type="button"
-                                                            data-responsive_offset="on"
-                                                            data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":1060,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255,255,255,1);bg:rgba(70,123,231,1);"}]'
-                                                            data-textAlign="['left','left','left','left']"
-                                                            data-paddingtop="[20,20,20,20]"
-                                                            data-paddingright="[32,32,32,32]"
-                                                            data-paddingbottom="[20,20,20,20]"
-                                                            data-paddingleft="[32,32,32,32]"
-                                                            style="z-index: 8; white-space: nowrap; font-size: 13px; line-height: 12px; font-weight: 900; color: rgba(255,255,255,1);font-family:Roboto;text-transform:uppercase;background-color:rgba(70,146,231,1);border-radius:3px 3px 3px 3px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                                            Learn More</div></a>
-                                                            {% else %}
-                                                            <a href="https://www.instagram.com/" target="_blank"><div class="tp-caption rev-btn  tp-resizeme"
-                                                            id="slide-1-layer-4" data-x="94" data-y="center"
-                                                            data-voffset="200" data-width="['auto']"
-                                                            data-height="['auto']" data-type="button"
-                                                            data-responsive_offset="on"
-                                                            data-frames='[{"from":"opacity:0;","speed":300,"to":"o:1;","delay":1060,"ease":"Power2.easeInOut"},{"delay":"wait","speed":300,"to":"opacity:0;","ease":"nothing"},{"frame":"hover","speed":"0","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgba(255,255,255,1);bg:rgba(70,123,231,1);"}]'
-                                                            data-textAlign="['left','left','left','left']"
-                                                            data-paddingtop="[20,20,20,20]"
-                                                            data-paddingright="[32,32,32,32]"
-                                                            data-paddingbottom="[20,20,20,20]"
-                                                            data-paddingleft="[32,32,32,32]"
-                                                            style="z-index: 8; white-space: nowrap; font-size: 13px; line-height: 12px; font-weight: 900; color: rgba(255,255,255,1);font-family:Roboto;text-transform:uppercase;background-color:rgba(70,146,231,1);border-radius:3px 3px 3px 3px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;">
-                                                            Learn More</div></a>
-                                                            {% endif %}
-                                                    </li>
-                                                    {% endfor %}
-                                                </ul>
-                                                <div class="tp-bannertimer tp-bottom"
-                                                    style="visibility: hidden !important;"></div>
-                                            </div>
-
+{% load static  %}
+<!-- banner starts -->
+<section class="banner pt-10 pb-0 overflow-hidden" style="background-image:url(images/testimonial.png);">
+    <div class="container">
+        <div class="banner-in">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="banner-content text-lg-start text-center">
+                        <h4 class="theme mb-0">Explore The World</h4>
+                        <h1>Start Planning Your Dream Trip Today!</h1>
+                        <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore</p>
+                        {% comment %} <div class="book-form">
+                            <div class="row d-flex align-items-center justify-content-between">
+                                <div class="col-lg-6 mb-2">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <select class="niceSelect">
+                                                <option value="1">Destination</option>
+                                                <option value="2">Argentina</option>
+                                                <option value="3">Belgium</option>
+                                                <option value="4">Canada</option>
+                                                <option value="5">Denmark</option>
+                                            </select>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <input type="date" name="date">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <select class="niceSelect">
+                                                <option value="1">Travel Type</option>
+                                                <option value="2">City Tour</option>
+                                                <option value="3">Family Tour</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="form-group">
+                                        <div class="input-box">
+                                            <select class="niceSelect">
+                                                <option value="1">Tour Duration</option>
+                                                <option value="2">5 days</option>
+                                                <option value="3">7 Days</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group mb-0 text-center">
+                                        <a href="#" class="nir-btn w-100"><i class="fa fa-search mr-2"></i> Search
+                                            Now</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
-
-                    <div class="gdlr-core-pbf-wrapper " id="div_0576_0">
-                        <div class="gdlr-core-pbf-background-wrap" id="div_0576_1"></div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-column gdlr-core-column-15 gdlr-core-column-first">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb  gdlr-core-center-align gdlr-core-no-caption gdlr-core-item-pdlr"
-                                                    id="div_0576_2">
-                                                    <div class="gdlr-core-column-service-media gdlr-core-media-image"
-                                                        id="div_0576_3"><img src="{% static 'upload/icon-13.png' %}" alt="" width="44"
-                                                            height="44" /></div>
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap"
-                                                            id="div_0576_4">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title"
-                                                                id="h3_0576_0">500+ Destinations</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" id="div_0576_5">
-                                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo.
-                                                                Nullam id.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-15">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb  gdlr-core-center-align gdlr-core-no-caption gdlr-core-item-pdlr"
-                                                    id="div_0576_6">
-                                                    <div class="gdlr-core-column-service-media gdlr-core-media-image"
-                                                        id="div_0576_7"><img src="{% static 'upload/icon-2.png' %}" alt="" width="41"
-                                                            height="49" /></div>
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap"
-                                                            id="div_0576_8">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title"
-                                                                id="h3_0576_1">Best Price In The Industry</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" id="div_0576_9">
-                                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo.
-                                                                Nullam id.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-15">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb  gdlr-core-center-align gdlr-core-no-caption gdlr-core-item-pdlr"
-                                                    id="div_0576_10">
-                                                    <div class="gdlr-core-column-service-media gdlr-core-media-image"
-                                                        id="div_0576_11"><img src="{% static 'upload/icon-14.png' %}" alt="" width="35"
-                                                            height="45" /></div>
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap"
-                                                            id="div_0576_12">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title"
-                                                                id="h3_0576_2">Great Customer Support</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" id="div_0576_13">
-                                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo.
-                                                                Nullam id.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-column gdlr-core-column-15">
-                                    <div class="gdlr-core-pbf-column-content-margin gdlr-core-js ">
-                                        <div class="gdlr-core-pbf-column-content clearfix gdlr-core-js ">
-                                            <div class="gdlr-core-pbf-element">
-                                                <div class="gdlr-core-column-service-item gdlr-core-item-pdb  gdlr-core-center-align gdlr-core-no-caption gdlr-core-item-pdlr"
-                                                    id="div_0576_14">
-                                                    <div class="gdlr-core-column-service-media gdlr-core-media-image"
-                                                        id="div_0576_15"><img src="{% static 'upload/icon-4.png' %}" alt="" width="35"
-                                                            height="38" /></div>
-                                                    <div class="gdlr-core-column-service-content-wrapper">
-                                                        <div class="gdlr-core-column-service-title-wrap"
-                                                            id="div_0576_16">
-                                                            <h3 class="gdlr-core-column-service-title gdlr-core-skin-title"
-                                                                id="h3_0576_3">Super Fast Booking</h3>
-                                                        </div>
-                                                        <div class="gdlr-core-column-service-content" id="div_0576_17">
-                                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo.
-                                                                Nullam id.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="banner-image">
+                        <img src="{% static 'images/travel.png' %}" alt="">
                     </div>
-                    {% comment %} destination  {% endcomment %}
-                    <div class="gdlr-core-pbf-wrapper " id="div_fd3f_21">
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" id="div_fd3f_22">
-                                        <div class="gdlr-core-title-item-title-wrap">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" id="h3_fd3f_5"><span class="gdlr-core-title-item-left-icon" id="span_fd3f_0"  ><i class="icon_pin_alt" id="i_fd3f_0"  ></i></span>Top Destinations<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align" id="div_fd3f_23">
-                                        <div class="gdlr-core-text-box-item-content">
-                                            <p><a href="../destinations/index.html">View All Destinations</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="tourmaster-tour-category clearfix ">
-                                        {% for destination in destination %}
-                                        <div class="tourmaster-tour-category-grid tourmaster-item-list  tourmaster-item-pdlr tourmaster-item-mgb tourmaster-column-15 tourmaster-with-thumbnail">
-                                            <div class="tourmaster-tour-category-item-wrap">
-                                                <div class="tourmaster-tour-category-thumbnail tourmaster-media-image"><img src="{{destination.image.url}}" alt="" width="800" height="960" /></div>
-                                                <div class="tourmaster-tour-category-overlay"></div>
-                                                <div class="tourmaster-tour-category-overlay-front"></div>
-                                                <div class="tourmaster-tour-category-head">
-                                                    <div class="tourmaster-tour-category-head-display clearfix">
-                                                        <h3 class="tourmaster-tour-category-title"><i class="icon_pin_alt" ></i>{{destination.location}}</h3>
-                                                        <div class="tourmaster-tour-category-count">3 tours</div>
-                                                    </div>
-                                                    <div class="tourmaster-tour-category-head-animate"><a class="tourmaster-tour-category-head-link" href="../tour-destination/south-america/index.html">View all tours</a>
-                                                        <div class="tourmaster-tour-category-head-divider"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>{% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    {% comment %} tour  {% endcomment %}
-                    <div class="gdlr-core-pbf-wrapper " id="div_fd3f_24">
-                        <div class="gdlr-core-pbf-background-wrap">
-                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" id="div_fd3f_25" data-parallax-speed="0.05"></div>
-                        </div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" id="div_fd3f_26">
-                                        <div class="gdlr-core-title-item-title-wrap">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" id="h3_fd3f_6"><span class="gdlr-core-title-item-left-icon" id="span_fd3f_1"  ><i class="icon_pin_alt" id="i_fd3f_1"  ></i></span>Popular Tour Packages<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-center-align" id="div_fd3f_27">
-                                        <div class="gdlr-core-text-box-item-content">
-                                            <p><a href="../tour-side-thumbnail-with-frame-right-sidebar/index.html">View All Tours</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="tourmaster-tour-item clearfix  tourmaster-tour-item-style-grid tourmaster-item-pdlr tourmaster-tour-item-column-3" id="div_fd3f_28">
-                                        <div class="gdlr-core-flexslider flexslider gdlr-core-js-2 tourmaster-nav-style-rect" data-type="carousel" data-column="3" data-nav="navigation" data-nav-parent="tourmaster-tour-item" data-vcenter-nav="1">
-                                            <ul class="slides">
-                                                {% for tour in tour %}
-                                                <li class="gdlr-core-item-mglr">
-                                                    <div class="tourmaster-tour-grid tourmaster-tour-frame tourmaster-price-right-title">
-                                                        <div class="tourmaster-tour-thumbnail tourmaster-media-image">
-                                                            <a href="../tour/africa-amazing-african-safari/index.html"><img src="{{tour.featured_image.url}}" alt="" width="700" height="450" /></a>
-                                                        </div>
-                                                        <div class="tourmaster-tour-content-wrap gdlr-core-skin-e-background">
-                                                            <h3 class="tourmaster-tour-title gdlr-core-skin-title"><a href="../tour/africa-amazing-african-safari/index.html" >{{tour.tour_name}}</a></h3>
-                                                            <div class="tourmaster-tour-price-wrap "><span class="tourmaster-tour-price"><span class="tourmaster-head">From</span><span class="tourmaster-tail">{{tour.price}}</span></span>
-                                                            </div>
-                                                            <div class="tourmaster-tour-info-wrap clearfix">
-                                                                <div class="tourmaster-tour-info tourmaster-tour-info-duration-text "><i class="icon_clock_alt"></i>{{tour.time}}</div>
-                                                            </div>
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% comment %} categories {% endcomment %}
-                    <div class="gdlr-core-pbf-wrapper " id="div_fd3f_35">
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-center-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" id="div_fd3f_36">
-                                        <div class="gdlr-core-title-item-title-wrap">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" id="h3_fd3f_7"><span class="gdlr-core-title-item-left-icon" id="span_fd3f_2"  ><i class="fa fa-sliders" id="i_fd3f_2"  ></i></span>Browse Tours By Category<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-icon-list-item gdlr-core-item-pdlr gdlr-core-item-pdb clearfix ">
-                                        <ul>
-                                            {% for category in category %}
-                                            <li class=" gdlr-core-skin-divider gdlr-core-column-15 gdlr-core-column-first" id="li_fd3f_0">
-                                                <a href="../tour-activity/city-tours/index.html">
-                                                    <div class="gdlr-core-icon-list-content-wrap"><span class="gdlr-core-icon-list-content" id="span_fd3f_3">{{category.category}}</span>
-                                                </div></a>
-                                            </li>
-                                            {% endfor %}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {% comment %} banner {% endcomment %}
-                    <div class="gdlr-core-pbf-wrapper " id="div_b937_32" data-skin="Testimonial">
-                        <div class="gdlr-core-pbf-background-wrap">
-                            <div class="gdlr-core-pbf-background gdlr-core-parallax gdlr-core-js" id="div_b937_33" data-parallax-speed="0"></div>
-                        </div>
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container-custom" id="div_b937_34">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-testimonial-item gdlr-core-item-pdb clearfix  gdlr-core-testimonial-style-center gdlr-core-item-pdlr">
-                                        <div class="gdlr-core-flexslider flexslider gdlr-core-js-2 gdlr-core-nav-style-middle-large" data-type="carousel" data-column="1" data-nav="bullet" data-vcenter-nav="1">
-                                            <div class="gdlr-core-block-item-title-wrap  gdlr-core-center-align gdlr-core-item-mglr">
-                                                <div class="gdlr-core-block-item-title-inner">
-                                                    <h3 class="gdlr-core-block-item-title" id="h3_b937_21"><i class="fa fa-comments-o"  ></i>Customer Reviews</h3></div>
-                                                <div class="gdlr-core-flexslider-nav gdlr-core-rectangle-style gdlr-core-absolute-center gdlr-core-right"></div>
-                                            </div>
-                                            <ul class="slides">
-                                                {% for testimonial in testimonial %}
-                                                <li class="gdlr-core-item-mglr">
-                                                    <div class="gdlr-core-testimonial clearfix">
-                                                        <div class="gdlr-core-testimonial-content-wrap">
-                                                            <div class="gdlr-core-testimonial-content gdlr-core-info-font gdlr-core-skin-content" id="div_b937_35">
-                                                                <p>{{testimonial.testimonial}}</p>
-                                                            </div>
-                                                            <div class="gdlr-core-testimonial-author-wrap clearfix">
-                                                                <div class="gdlr-core-testimonial-author-image gdlr-core-media-image"><img src="{{testimonial.image.url}}" alt="" width="150" height="150" /></div>
-                                                                <div class="gdlr-core-testimonial-author-content">
-                                                                    <div class="gdlr-core-testimonial-title gdlr-core-title-font gdlr-core-skin-title"> {{testimonial.name}} </div>
-                                                                    <div class="gdlr-core-testimonial-position gdlr-core-info-font gdlr-core-skin-caption"><span class="gdlr-core-rating">
-                                                                        {% for i in "x"|rjust:testimonial.star|make_list %}
-                                                                        <i class="fa fa-star" ></i>
-                                                                       {% endfor %}
-                                                                        
-                                                                    </span></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% comment %} blogs  {% endcomment %}
-                    <div class="gdlr-core-pbf-wrapper " id="div_29f0_38">
-                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
-                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" id="div_29f0_39">
-                                        <div class="gdlr-core-title-item-title-wrap">
-                                            <h3 class="gdlr-core-title-item-title gdlr-core-skin-title" id="h3_29f0_5"><span class="gdlr-core-title-item-left-icon" id="span_29f0_12"  ><i class="icon_lightbulb_alt" id="i_29f0_8"  ></i></span>Travel Articles<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider" ></span></h3><a href="#" target="_self" class="gdlr-core-title-item-link"><span class="gdlr-core-separator" >/</span>Read All Articles</a></div>
-                                    </div>
-                                </div>
-                                <div class="gdlr-core-pbf-element">
-                                    <div class="gdlr-core-blog-item gdlr-core-item-pdb clearfix  gdlr-core-style-blog-image" id="div_29f0_40">
-                                        <div class="gdlr-core-blog-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
-                                            {% for blog in blog %}
-                                            <div class="gdlr-core-item-list  gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-15 gdlr-core-column-first">
-                                                <div class="gdlr-core-blog-modern  gdlr-core-with-image gdlr-core-hover-overlay-content gdlr-core-opacity-on-hover gdlr-core-zoom-on-hover">
-                                                    <div class="gdlr-core-blog-modern-inner">
-                                                        <div class="gdlr-core-blog-thumbnail gdlr-core-media-image"><img src="{{blog.image.url}}" alt="" width="700" height="660" /></div>
-                                                        <div class="gdlr-core-blog-modern-content  gdlr-core-center-align" id="div_29f0_41">
-                                                            <h3 class="gdlr-core-blog-title gdlr-core-skin-title" id="h3_29f0_6"><a href="#" >{{blog.title}}</a></h3>
-                                                            <div class="gdlr-core-blog-info-wrapper gdlr-core-skin-divider"><span class="gdlr-core-blog-info gdlr-core-blog-info-font gdlr-core-skin-caption gdlr-core-blog-info-date"><span class="gdlr-core-head" ><i class="icon_clock_alt" ></i></span><a href="#">June 6, 2016</a></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
                 </div>
             </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- about-us starts -->
+<section class="about-us pb-6 pt-6" style="background-image:url(images/shape4.png); background-position:center;">
+    <div class="container">
+
+        <div class="section-title mb-6 w-50 mx-auto text-center">
+            <h4 class="mb-1 theme1">4 Step of The Perfect Tour</h4>
+            <h2 class="mb-1">Find <span class="theme">Travel Perfection</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
+        </div>
+
+        <!-- why us starts -->
+        <div class="why-us">
+            <div class="why-us-box">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="why-us-item text-center p-4 py-5 border rounded bg-white">
+                            <div class="why-us-content">
+                                <div class="why-us-icon">
+                                    <i class="icon-flag theme"></i>
+                                </div>
+                                <h4><a href="{% url 'about_us' %}">Tell Us What You want To Do</a></h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="why-us-item text-center p-4 py-5 border rounded bg-white">
+                            <div class="why-us-content">
+                                <div class="why-us-icon">
+                                    <i class="icon-location-pin theme"></i>
+                                </div>
+                                <h4><a href="{% url 'about_us' %}">Share Your Travel Locations</a></h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="why-us-item text-center p-4 py-5 border rounded bg-white">
+                            <div class="why-us-content">
+                                <div class="why-us-icon">
+                                    <i class="icon-directions theme"></i>
+                                </div>
+                                <h4><a href="{% url 'about_us' %}">Share Your Travel Preference</a></h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="why-us-item text-center p-4 py-5 border rounded bg-white">
+                            <div class="why-us-content">
+                                <div class="why-us-icon">
+                                    <i class="icon-compass theme"></i>
+                                </div>
+                                <h4><a href="{% url 'about_us' %}">We are 100% Trusted Tour Agency</a></h4>
+                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- why us ends -->
+    </div>
+    <div class="white-overlay"></div>
+</section>
+<!-- about-us ends -->
+
+<!-- top Destination starts -->
+<section class="our-team pb-6">
+    <div class="container">
+
+        <div class="section-title mb-6 w-75 mx-auto text-center">
+            <h4 class="mb-1 theme1">Top Destinations</h4>
+        <h2 class="mb-1">Explore <span class="theme">Top Destinations</span></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+        </p>
+        </div>
+        <div class="team-main">
+            <div class="row shop-slider">
+                {% for destination in destination %}
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="team-list rounded">
+                        <div class="team-image">
+                            <img src="{{destination.image.url}}" alt="team">
+                        </div>
+                        <div class="team-content text-center p-3 bg-theme">
+                            <h4 class="mb-0 white">{{destination.location}}</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- top Destination ends -->
+
+<!-- about-us starts -->
+<section class="about-us pt-0" style="background-image:url(images/bg/bg-trans.png);">
+    <div class="container">
+        <div class="about-image-box">
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-lg-6 mb-4 pe-4">
+                    <div class="about-image overflow-hidden">
+                        <img src="{% static 'images/travel1.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4 ps-4">
+                    <div class="about-content text-center text-lg-start mb-4">
+                        <h4 class="theme d-inline-block mb-0">Get To Know Us</h4>
+                        <h2 class="border-b mb-2 pb-1">Explore All Tour of the world with us.</h2>
+                        <p class="border-b mb-2 pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat.<br><br>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                            officia deserunt mollit anim id est laborum.</p>
+                        <div class="about-listing">
+                            <ul class="d-flex justify-content-between">
+                                <li><i class="icon-location-pin theme"></i> Tour Guide</li>
+                                <li><i class="icon-briefcase theme"></i> Friendly Price</li>
+                                <li><i class="icon-folder theme"></i> Reliable Tour Package</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <!-- Counter -->
+                    <div class="counter-main w-75 float-end">
+                        <div class="counter p-4 pb-0 box-shadow bg-white rounded">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                                    <div class="counter-item border-end pe-4">
+                                        <div class="counter-content">
+                                            <h2 class="value mb-0 theme">20</h2>
+                                            <span class="m-0">Years Experiences</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                                    <div class="counter-item border-end pe-4">
+                                        <div class="counter-content">
+                                            <h2 class="value mb-0 theme">530</h2>
+                                            <span class="m-0">Tour Packages</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                                    <div class="counter-item border-end pe-4">
+                                        <div class="counter-content">
+                                            <h2 class="value mb-0 theme">850</h2>
+                                            <span class="m-0">Happy Customers</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                                    <div class="counter-item">
+                                        <div class="counter-content">
+                                            <h2 class="value mb-0 theme">320</h2>
+                                            <span class="m-0">Award Winning</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Counter -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="white-overlay"></div>
+</section>
+<!-- about-us ends -->
+
+<!-- best tour Starts -->
+<section class="trending pb-0">
+    <div class="container">
+        <div class="row align-items-center justify-content-between mb-6 ">
+            <div class="col-lg-7">
+                <div class="section-title text-center text-lg-start">
+                    <h4 class="mb-1 theme1">Top Pick</h4>
+                    <h2 class="mb-1">Best <span class="theme">Tour Packages</span></h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore.</p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+
+            </div>
+        </div>
+        <div class="trend-box">
+            <div class="row item-slider">
+                {% for tour in tour %}
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item rounded box-shadow">
+                        <div class="trend-image position-relative">
+                            <img src="{{tour.featured_image.url}}" alt="image" class="">
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                                <div class="entry-author">
+                                    <i class="icon-calendar"></i>
+                                    <span class="fw-bold">{{tour.time}}</span>
+                                </div>
+                            </div>
+                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i>{{tour.tour_location}}</h5>
+                            <h3 class="mb-1"><a href="{% url 'tour_single' id=tour.id %}">{{tour.tour_name}}</a></h3>
+                            <p class=" border-b pb-2 mb-2">{{tour.tour_details|safe|truncatechars:110}}</p>
+                            <div class="entry-meta">
+                                <div class="entry-author d-flex align-items-center">
+                                    <p class="mb-0"><span class="theme fw-bold fs-5"> {{tour.price}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- best tour Ends -->
+
+
+
+{% comment %} <!-- offer Packages Starts -->
+<section class="trending pb-0 pt-4">
+    <div class="container">
+        <div class="section-title mb-6 w-75 mx-auto text-center">
+            <h4 class="mb-1 theme1">Top Offers</h4>
+            <h2 class="mb-1">Special <span class="theme">Offers & Discount </span> Packages</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
+        </div>
+        <div class="trend-box">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item rounded box-shadow bg-white">
+                        <div class="trend-image position-relative">
+                            <img src="{% static 'images/trending/trending3.jpg' %}" alt="image" class="">
+                            <div class="ribbon ribbon-top-left"><span class="fw-bold">20% OFF</span></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                                <div class="entry-author">
+                                    <i class="icon-calendar"></i>
+                                    <span class="fw-bold"> 9 Days Tours</span>
+                                </div>
+                            </div>
+                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Croatia</h5>
+                            <h3 class="mb-1"><a href="tour-grid.html">Piazza Castello</a></h3>
+                            <div class="rating-main d-flex align-items-center pb-2">
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <span class="ms-2">(12)</span>
+                            </div>
+                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
+                                esse cillum</p>
+                            <div class="entry-meta">
+                                <div class="entry-author d-flex align-items-center">
+                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $170.00</span> | Per person
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item box-shadow rounded bg-white">
+                        <div class="trend-image position-relative">
+                            <img src="{% static 'images/trending/trending1.jpg' %}" alt="image">
+                            <div class="ribbon ribbon-top-left"><span class="fw-bold">30% OFF</span></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                                <div class="entry-author">
+                                    <i class="icon-calendar"></i>
+                                    <span class="fw-bold"> 9 Days Tours</span>
+                                </div>
+                            </div>
+                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Greece</h5>
+                            <h3 class="mb-1"><a href="tour-grid.html">Santorini, Oia</a></h3>
+                            <div class="rating-main d-flex align-items-center pb-2">
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <span class="ms-2">(38)</span>
+                            </div>
+                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
+                                esse cillum</p>
+                            <div class="entry-meta">
+                                <div class="entry-author d-flex align-items-center">
+                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $180.00</span> | Per person
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="trend-item box-shadow rounded bg-white">
+                        <div class="trend-image position-relative">
+                            <img src="{% static 'images/trending/trending2.jpg' %}" alt="image">
+                            <div class="ribbon ribbon-top-left"><span class="fw-bold">15% OFF</span></div>
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
+                                <div class="entry-author">
+                                    <i class="icon-calendar"></i>
+                                    <span class="fw-bold"> 9 Days Tours</span>
+                                </div>
+                            </div>
+                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Maldives</h5>
+                            <h3 class="mb-1"><a href="tour-grid.html">Hurawalhi Island</a></h3>
+                            <div class="rating-main d-flex align-items-center pb-2">
+                                <div class="rating">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                </div>
+                                <span class="ms-2">(18)</span>
+                            </div>
+                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
+                                esse cillum</p>
+                            <div class="entry-meta">
+                                <div class="entry-author d-flex align-items-center">
+                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $260.00</span> | Per person
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- offer Packages Ends --> {% endcomment %}
+
+
+<!-- testomonial start -->
+<section class="testimonial pt-9" style="background-image:url(images/testimonial.png)">
+    <div class="container">
+        <div class="section-title mb-6 text-center w-75 mx-auto">
+            <h4 class="mb-1 theme1">Our Testimonails</h4>
+            <h2 class="mb-1">Good Reviews By <span class="theme">Clients</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-5 pe-4">
+                <div class="testimonial-image">
+                    <img src="{% static 'images/travel2.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-7 ps-4">
+                <div class="row review-slider">
+                    {% for testimonial in testimonial %}
+                    <div class="col-sm-4 item">
+                        <div class="testimonial-item1 rounded">
+                            <div class="author-info d-flex align-items-center mb-4">
+                                <img src="{{ testimonial.image.url}}" alt="">
+                                <div class="author-title ms-3">
+                                    <h5 class="m-0 theme">{{testimonial.name}}</h5>
+                                    <span>{{testimonial.star}}/5 star rating</i></span>
+                                </div>
+                            </div>
+                            <div class="details">
+                                <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i>{{testimonial.testimonial}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- testimonial ends -->
+
+    <!-- partner starts -->
+    <section class="our-partner pb-6 pt-6">
+        <div class="container">
+            <div class="section-title mb-6 w-75 mx-auto text-center">
+                <h4 class="mb-1 theme1">Our Partners</h4>
+                <h2 class="mb-1">Our Awesome <span class="theme">partners</span></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+            <div class="row align-items-center partner-in partner-slider">
+                <div class="col-md-3 col-sm-6">
+                    {% for partner in partner %}
+                    <div class="partner-item p-4 py-2 rounded bg-lgrey">
+                        <img src="{{partner.logo.url}}" alt="{{partner.name}}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- partner ends -->
+
+<!-- recent-articles starts -->
+<section class="trending recent-articles pb-6">
+    <div class="container">
+        <div class="section-title mb-6 w-75 mx-auto text-center">
+            <h4 class="mb-1 theme1">Our Blogs Offers</h4>
+            <h2 class="mb-1">Recent <span class="theme">Articles & Posts</span></h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+            </p>
+        </div>
+        <div class="recent-articles-inner">
+            <div class="row">
+                {% for blog in blog %}
+                <div class="col-lg-4">
+                    <div class="trend-item box-shadow bg-white mb-4 rounded overflow-hidden">
+                        <div class="trend-image">
+                            <img src="{{blog.image.url}}" alt="image" height='300'>
+                        </div>
+                        <div class="trend-content-main p-4 pb-2">
+                            <div class="trend-content">
+                                <h4><a href="{% url 'blog_single' id=blog.id %}">{{blog.title}}</a></h4>
+                                <p class="mb-3">
+                                    {{blog.blog|safe|truncatechars:100}}
+                                </p>
+                                <div class="entry-meta d-flex align-items-center justify-content-between">
+                                    <div class="entry-button d-flex align-items-centermb-2">
+                                        <a href="{% url 'blog_single' id=blog.id %}" class="nir-btn">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- recent-articles ends -->
+
 {% include 'footer.html' %}
+

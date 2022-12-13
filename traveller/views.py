@@ -1,42 +1,118 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from adminpanel.models import *
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    slider = Slider.objects.all().order_by('order')
-   
+    company = CompanySetup.objects.filter()[:1].get()
     destination = Destination.objects.all()
     tour = Tour.objects.all()
+    
     category = TourCategory.objects.all()
     blog = Blog.objects.all()
     testimonial = Testimonial.objects.all()
+    partner = Partner.objects.all()
     context = {
-        'slider':slider,
+        'company':company,
         'destination':destination,
         'tour':tour,
         'category':category,
         'blog':blog,
-        'testimonial':testimonial
+        'testimonial':testimonial,
+        'partner':partner
     }
     return render(request,'index.html',context)
 
 
 def destinations(request):
-    destinations = Destination.objects.all()
+    company = CompanySetup.objects.filter()[:1].get()
+    destination = Destination.objects.all()
     context = {
-        'destinations':destinations,
+        'company':company,
+        'destination':destination,
 
     }
     return render(request,'destinations.html',context)
 
 def tours(request):
+    company = CompanySetup.objects.filter()[:1].get()
     tours = Tour.objects.all()
     
     context = {
+        'company':company,
         'tours':tours,
 
     }
     return render(request,'tours.html',context)
     
+    
 def tour_single(request,id):
-    return render(request,'tour_single.html')
+    company = CompanySetup.objects.filter()[:1].get()
+    tour = Tour.objects.get(id=id)
+    context = {
+        'company':company,
+        'tour':tour,
+
+    }
+    return render(request,'tour_single.html',context)
+
+
+def about_us(request):
+    company = CompanySetup.objects.filter()[:1].get()
+
+    testimonial = Testimonial.objects.all()
+    team = Team.objects.all()
+    partner = Partner.objects.all()
+    context = {
+        'company':company,
+        'team':team,
+        'testimonial':testimonial,
+        'partner':partner
+    }
+    return render(request,'about_us.html',context)
+
+
+def blogs(request):
+    company = CompanySetup.objects.filter()[:1].get()
+    blogs = Blog.objects.all()
+    context = {
+        'company':company,
+        'blogs':blogs,
+    }
+    return render(request,'blogs.html',context)
+
+    
+def contact_us(request):
+    company = CompanySetup.objects.filter()[:1].get()
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        subject = request.POST["subject"]
+        contact = request.POST["contact"]
+        message = request.POST["message"]
+        Contact.objects.create(
+            name=name, email=email, subject=subject, contact=contact, message=message
+        )
+        return redirect('home')
+    else:
+        return render(request,'contact_us.html')
+
+
+
+
+def blog_single(request,id):
+    company = CompanySetup.objects.filter()[:1].get()
+    blog = Blog.objects.get(id=id)
+    partner = Partner.objects.all()
+    blogs = Blog.objects.all()
+    paginator = Paginator(blogs, 2)
+    page = request.GET.get("page")
+    blogs = paginator.get_page(page)
+    context = {
+        'company':company,
+        'blog':blog,
+        'blogs':blogs,
+        'partner':partner
+    }
+    return render(request,'blog_single.html',context)
+
