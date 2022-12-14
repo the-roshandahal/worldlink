@@ -106,6 +106,14 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+class Booking(models.Model):
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
+    no_of_travellers = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 
 

@@ -12,6 +12,9 @@ class BlogField(SummernoteModelAdmin):
     summernote_fields = ('blog')
 # class SliderFields(admin.ModelAdmin):
 #     list_display = ('main_text', 'order',)
+class BookingFields(admin.ModelAdmin):
+    list_display= ('name', 'tour')
+
 
 admin.site.unregister(Attachment)
 # admin.site.register(Slider,SliderFields)
@@ -23,4 +26,5 @@ admin.site.register(Testimonial)
 admin.site.register(Partner)
 admin.site.register(Team)
 admin.site.register(Contact)
+admin.site.register(Booking,BookingFields)
 admin.site.register(CompanySetup)

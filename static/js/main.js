@@ -397,27 +397,27 @@
      });
 
 
-     $("#contactform2").validate({      
-      submitHandler: function() {
+    //  $("#contactform2").validate({      
+    //   submitHandler: function() {
         
-        $.ajax({
-          url : 'mail/contact.php',
-          type : 'POST',
-          data : {
-            fname : $('input[name="first_name"]').val(),
-            lname : $('input[name="last_name"]').val(),
-            email : $('input[name="email"]').val(),
-            phone : $('input[name="phone"]').val(),
-            comments : $('textarea[name="comments"]').val(),
-          },
-          success : function( result ){
-            $('#contactform-error-msg').html( result );
-            $("#contactform2")[0].reset();
-          }     
-        });
+    //     $.ajax({
+    //       url : 'mail/contact.php',
+    //       type : 'POST',
+    //       data : {
+    //         fname : $('input[name="first_name"]').val(),
+    //         lname : $('input[name="last_name"]').val(),
+    //         email : $('input[name="email"]').val(),
+    //         phone : $('input[name="phone"]').val(),
+    //         comments : $('textarea[name="comments"]').val(),
+    //       },
+    //       success : function( result ){
+    //         $('#contactform-error-msg').html( result );
+    //         $("#contactform2")[0].reset();
+    //       }     
+    //     });
 
-      }
-    });
+    //   }
+    // });
 
     
      /*-----------------------------------------------------------------------------------*/
@@ -463,10 +463,10 @@
          }
      });
      //Do not include! This prevents the form from submitting for DEMO purposes only!
-     $('form').submit(function(event) {
-         event.preventDefault();
-         return false;
-     });
+    //  $('form').submit(function(event) {
+    //      event.preventDefault();
+    //      return true;
+    //  });
 
  })(jQuery);
 

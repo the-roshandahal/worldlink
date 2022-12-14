@@ -7,11 +7,11 @@ def home(request):
     company = CompanySetup.objects.filter()[:1].get()
     destination = Destination.objects.all()
     tour = Tour.objects.all()
-    
     category = TourCategory.objects.all()
     blog = Blog.objects.all()
     testimonial = Testimonial.objects.all()
     partner = Partner.objects.all()
+
     context = {
         'company':company,
         'destination':destination,
@@ -21,27 +21,29 @@ def home(request):
         'testimonial':testimonial,
         'partner':partner
     }
+
     return render(request,'index.html',context)
 
 
 def destinations(request):
     company = CompanySetup.objects.filter()[:1].get()
     destination = Destination.objects.all()
+
     context = {
         'company':company,
         'destination':destination,
-
     }
+
     return render(request,'destinations.html',context)
 
 def tours(request):
     company = CompanySetup.objects.filter()[:1].get()
     tours = Tour.objects.all()
-    
+    partner = Partner.objects.all()
     context = {
+        'partner':partner,
         'company':company,
         'tours':tours,
-
     }
     return render(request,'tours.html',context)
     
@@ -95,7 +97,7 @@ def contact_us(request):
         )
         return redirect('home')
     else:
-        return render(request,'contact_us.html')
+        return render(request,'contact_us.html',{'company':company})
 
 
 
@@ -116,3 +118,29 @@ def blog_single(request,id):
     }
     return render(request,'blog_single.html',context)
 
+def book_trip(request,id):
+    if request.method == "POST":
+        name = request.POST["name"]
+        email = request.POST["email"]
+        contact = request.POST["contact"]
+        no_of_travellers = request.POST["no_of_travellers"]
+        tour = Tour.objects.get(id=id)
+        Booking.objects.create(
+            tour=tour, name=name, email=email, contact=contact, no_of_travellers=no_of_travellers
+        )
+        return redirect('tours')
+    else:
+        return redirect('tours')
+
+
+
+def destination_filter(request,id):
+    company = CompanySetup.objects.filter()[:1].get()
+    tours = Tour.objects.filter(tour_location_id = id)
+    partner = Partner.objects.all()
+    context = {
+        'company':company,
+        'partner':partner,
+        'tours':tours,
+    }
+    return render(request,'tours.html',context)

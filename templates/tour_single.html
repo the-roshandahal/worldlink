@@ -1,24 +1,6 @@
 {% load static %}
 {% include 'header.html' %}
-    <!-- BreadCrumb Starts -->  
-    <section class="breadcrumb-main pb-20 pt-14" style="background-image: url({{tour.featured_image.url}});">
-        <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url(images/shape8.png);"></div>
-        <div class="breadcrumb-outer">
-            <div class="container">
-                <div class="breadcrumb-content text-center">
-                    <h1 class="mb-3">Tour Details</h1>
-                    <nav aria-label="breadcrumb" class="d-block">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Tour Details</li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="dot-overlay"></div>
-    </section>
-    <!-- BreadCrumb Ends --> 
+
 
     <!-- top Destination starts -->
     <section class="trending pt-6 pb-0 bg-lgrey overflow-hidden">
@@ -70,7 +52,7 @@
 
 
                     <div class="description mb-4">
-                        <h4>What to Expect</h4>
+                        <h4>Itinerary</h4>
                         <p>{{tour.itinerary|safe}}</p>               
                     </div>
                 </div>
@@ -78,5 +60,51 @@
             </div>
         </div>
     </section>
+
+
+        <section class="testimonial pt-9" style="background-image:url({% static 'images/testimonial.png' %})">
+            <div class="container">
+                <div class="section-title mb-6 text-center w-75 mx-auto">
+                    <h2 class="mb-1">Book Your <span class="theme">Trip</span></h2>
+                    <p>You will receive a confirmation email/call from Worldlink tour team.
+                    </p>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-5 pe-4">
+                        <div class="testimonial-image">
+                            <img src="{{tour.featured_image.url}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 ps-4">
+                        <div class="row review-slider">
+                            
+                            <form method="post" action="{% url 'book_trip' id=tour.id %}" name="contactform" id="contactform3">
+                                <h3 class="text-center border-b pb-2">Book This Trip</h3>
+                                {% csrf_token %}
+                                <div class="form-group mb-2">
+                                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Name">
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <input type="text" name="contact" class="form-control" id="fullname" placeholder="Contact Number">
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <input type="text" name="no_of_travellers" class="form-control" id="password" placeholder="No of People Travelling">
+                                </div>
+
+                                <div class="comment-btn mb-2 pb-2 text-center border-b">
+                                    <input type="submit" class="nir-btn" id="submit1" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
   
 {% include 'footer.html' %}

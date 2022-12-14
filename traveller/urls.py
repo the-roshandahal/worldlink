@@ -16,6 +16,9 @@ urlpatterns = [
     path('blogs/', views.blogs, name="blogs"),
     path('blog_single/<int:id>', views.blog_single, name="blog_single"),
 
+
+    path('book_trip/<int:id>', views.book_trip, name="book_trip"),
+    path('destination_filter/<int:id>', views.destination_filter, name="tours"),
     
     path('summernote/', include('django_summernote.urls')),
     
