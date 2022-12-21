@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qxab-@z*$ht6&_kfa%x=%3ur$ov*@ju8x_osf7_kpcf+c4oc(8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,6 +83,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'worldlink',
+#         'USER': 'root',
+#         'PASSWORD': 'Dell@321',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation

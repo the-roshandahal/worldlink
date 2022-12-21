@@ -6,7 +6,15 @@ from django.core.paginator import Paginator
 def home(request):
     company = CompanySetup.objects.filter()[:1].get()
     destination = Destination.objects.all()
-    tour = Tour.objects.all()
+    paginator = Paginator(destination, 4)
+    page = request.GET.get("page")
+    destination = paginator.get_page(page)
+
+    tour = Tour.objects.filter(is_featured = '1')
+    paginator = Paginator(tour, 3)
+    page = request.GET.get("page")
+    tour = paginator.get_page(page)
+
     category = TourCategory.objects.all()
     blog = Blog.objects.all()
     testimonial = Testimonial.objects.all()
@@ -39,6 +47,11 @@ def destinations(request):
 def tours(request):
     company = CompanySetup.objects.filter()[:1].get()
     tours = Tour.objects.all()
+
+    paginator = Paginator(tours, 9)
+    page = request.GET.get("page")
+    tours = paginator.get_page(page)
+
     partner = Partner.objects.all()
     context = {
         'partner':partner,
@@ -136,7 +149,9 @@ def book_trip(request,id):
 
 def destination_filter(request,id):
     company = CompanySetup.objects.filter()[:1].get()
+
     tours = Tour.objects.filter(tour_location_id = id)
+
     partner = Partner.objects.all()
     context = {
         'company':company,

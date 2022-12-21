@@ -1,18 +1,18 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-# Create your models here.
-class Slider(models.Model):
-    image = models.ImageField(upload_to='slider_images')
-    main_text = models.CharField(max_length=200)
-    second_text = models.CharField(max_length=200)
-    third_text = models.CharField(max_length=200)
-    custom_url = models.URLField(null=True, blank=True)
-    order = models.PositiveIntegerField(default="1")
+# # Create your models here.
+# class Slider(models.Model):
+#     image = models.ImageField(upload_to='slider_images')
+#     main_text = models.CharField(max_length=200)
+#     second_text = models.CharField(max_length=200)
+#     third_text = models.CharField(max_length=200)
+#     custom_url = models.URLField(null=True, blank=True)
+#     order = models.PositiveIntegerField(default="1")
 
-    def __str__(self):
-        return self.main_text
-    class Meta:
-        verbose_name_plural = "  Slider" 
+#     def __str__(self):
+#         return self.main_text
+#     class Meta:
+#         verbose_name_plural = "  Slider" 
 
 class TourCategory(models.Model):
     category = models.CharField(max_length=100)
@@ -37,6 +37,7 @@ class Tour(models.Model):
     tour_name = models.CharField(max_length=10000000)
     tour_category = models.ForeignKey(TourCategory, on_delete=models.CASCADE)
     tour_location = models.ForeignKey(Destination, on_delete=models.CASCADE, null=True,blank=True)
+    drop_location =models.CharField(max_length=10000000, null=True,blank=True)
     time = models.CharField(max_length=10000000)
     availability = models.CharField(max_length=10000000)
     min_age = models.CharField(max_length=10000000)
@@ -44,14 +45,16 @@ class Tour(models.Model):
     tour_details = models.CharField(max_length=10000000)
     itinerary = models.CharField(max_length=10000000)
     price = models.CharField(max_length=10000000)
-    offered_price =models.CharField(max_length=10000000, null=True,blank=True)
     featured_image= models.ImageField(upload_to="tour_image")
     image1 = models.ImageField(upload_to="tour_image", null=True,blank=True)
     image2 = models.ImageField(upload_to="tour_image", null=True,blank=True)
     image3 = models.ImageField(upload_to="tour_image", null=True,blank=True)
+    is_featured = models.BooleanField(null=True)
     created = models.DateField(auto_now_add=True)
     def __str__(self):
         return self.tour_name
+    class Meta:
+        verbose_name_plural = "    Tours & Trekking" 
     
 
 class Blog(models.Model):
@@ -119,21 +122,28 @@ class Booking(models.Model):
 
 class CompanySetup(models.Model):
     data_set = models.CharField(max_length=100)
+
     header_logo = models.ImageField(upload_to="company_images")
     footer_logo = models.ImageField(upload_to="company_images")
+    
     location = models.CharField(max_length=1000)
     primary_contact = models.CharField(max_length=1000)
     secondary_contact = models.CharField(max_length=1000)
     primary_email = models.CharField(max_length=1000)
     secondary_email = models.CharField(max_length=1000)
     opening_hours = models.CharField(max_length=100)
+
     years_of_experience = models.CharField(max_length=100)
     tour_packages = models.CharField(max_length=100)
-    destination = models.CharField(max_length=100)
     happy_customers = models.CharField(max_length=100)
+    destination = models.CharField(max_length=100)
+    
     facebook_url = models.URLField()
     instagram_url = models.URLField()
     twitter_url = models.URLField()
+
+    about_us_page_heading_text = models.CharField(max_length=100000)
+    about_us_page_content = models.CharField(max_length=100000)
 
     def __str__(self):
         return self.data_set

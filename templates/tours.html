@@ -6,13 +6,7 @@
     <div class="breadcrumb-outer">
         <div class="container">
             <div class="breadcrumb-content text-center">
-                <h1 class="mb-3">Tour Packages</h1>
-                <nav aria-label="breadcrumb" class="d-block">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tours</li>
-                    </ul>
-                </nav>
+                <h1 class="mb-3">Tour & Trekking Packages</h1>
             </div>
         </div>
     </div>
@@ -23,12 +17,6 @@
 <!-- top Destination starts -->
 <section class="trending pt-6 pb-0 bg-lgrey">
     <div class="container">
-        <div class="list-results d-flex align-items-center justify-content-between">
-            <div class="list-results-sort">
-                <p class="m-0">Showing 1-5 of 80 results</p>
-            </div>
-        </div>
-
         <div class="row">
 
             {% for tours in tours %}
@@ -57,11 +45,27 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="col-lg-12">
-                <div class="text-center">
-                    <a href="#" class="nir-btn">Load More <i class="fa fa-long-arrow-alt-right"></i></a>
-                </div>
+            
+            
+
+
+            <div class="pagination-main text-center">
+                <ul class="pagination">
+                    {% if tours.has_previous %}
+                    <li><a href=""?page={{tours.previous_page_number }}""><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% for num in tours.paginator.page_range %}
+                    {%if tours.number == num %}
+                    <li class="active"><a href="?page={{ num }}">1</a></li>
+                    {% elif num > tours.number|add:'-5' and num < tours.number|add:'5' %}
+                    <li><a href="?page={{ num }}"> {{num}} </a></li>
+                    {% endif %} {% endfor %} {% if tours.has_next %}
+                    <li> <a href="?page={{ tours.next_page_number }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                </ul>
             </div>
+
+
         </div>
     </div>
 </section>

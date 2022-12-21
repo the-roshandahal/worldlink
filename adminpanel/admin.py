@@ -4,6 +4,10 @@ from django_summernote.admin import SummernoteModelAdmin
 admin.site.site_header = "Admin panel"
 
 from django_summernote.models import Attachment
+class CompanyField(SummernoteModelAdmin):
+    summernote_fields = ('about_us_page_content')
+
+
 class Description(SummernoteModelAdmin):
     summernote_fields = ('tour_details','itinerary')
 
@@ -27,4 +31,4 @@ admin.site.register(Partner)
 admin.site.register(Team)
 admin.site.register(Contact)
 admin.site.register(Booking,BookingFields)
-admin.site.register(CompanySetup)
+admin.site.register(CompanySetup,CompanyField)
