@@ -1,7 +1,8 @@
 from django.urls import path,include
 from . import views
 from django.conf import settings
-
+from django.views.static import serve
+from django.urls import re_path
 from django.conf.urls.static import static
 
 
@@ -21,6 +22,10 @@ urlpatterns = [
     path('destination_filter/<int:id>', views.destination_filter, name="tours"),
     
     path('summernote/', include('django_summernote.urls')),
+
+    re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+    
     
 ]
 

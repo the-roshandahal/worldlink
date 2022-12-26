@@ -1,10 +1,10 @@
 from django.shortcuts import render,redirect
-from adminpanel.models import *
+from .models import *
 from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
-    company = CompanySetup.objects.filter()[:1].get()
+    
     destination = Destination.objects.all()
     paginator = Paginator(destination, 4)
     page = request.GET.get("page")
@@ -20,16 +20,26 @@ def home(request):
     testimonial = Testimonial.objects.all()
     partner = Partner.objects.all()
 
-    context = {
-        'company':company,
-        'destination':destination,
-        'tour':tour,
-        'category':category,
-        'blog':blog,
-        'testimonial':testimonial,
-        'partner':partner
-    }
-
+    if CompanySetup.objects.filter()[:1].exists():
+        company = CompanySetup.objects.filter()[:1].get()
+        context = {
+            'company':company,
+            'destination':destination,
+            'tour':tour,
+            'category':category,
+            'blog':blog,
+            'testimonial':testimonial,
+            'partner':partner
+        }
+    else:
+        context = {
+            'destination':destination,
+            'tour':tour,
+            'category':category,
+            'blog':blog,
+            'testimonial':testimonial,
+            'partner':partner
+        }
     return render(request,'index.html',context)
 
 

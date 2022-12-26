@@ -23,8 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qxab-@z*$ht6&_kfa%x=%3ur$ov*@ju8x_osf7_kpcf+c4oc(8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'traveller',
-    'adminpanel',
 ]
 INSTALLED_APPS += ('django_summernote',)
 
