@@ -4,6 +4,7 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
+    slider = Slider.objects.all().order_by("order")
     
     destination = Destination.objects.all()
     paginator = Paginator(destination, 4)
@@ -23,6 +24,7 @@ def home(request):
     if CompanySetup.objects.filter()[:1].exists():
         company = CompanySetup.objects.filter()[:1].get()
         context = {
+            'slider':slider,
             'company':company,
             'destination':destination,
             'tour':tour,

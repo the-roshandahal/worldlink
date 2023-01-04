@@ -1,6 +1,20 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+class Slider(models.Model):
+    order = models.TextField()
+    image = models.ImageField(upload_to='slider_images')
+    text_1 = models.TextField(null=True,blank=True)
+    text_2 = models.TextField(null=True,blank=True)
+    text_3 = models.TextField(null=True,blank=True)
+    text_4 = models.TextField(null=True,blank=True)
+    custom_link = models.URLField(null=True,blank=True)
+
+    def __str__(self):
+        return self.text_1
+    class Meta:
+        verbose_name_plural = " Slider" 
+
 class TourCategory(models.Model):
     category = models.TextField()
     order = models.PositiveIntegerField(default="1")

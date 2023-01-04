@@ -828,7 +828,7 @@ button{border:none;}
     padding: 14px 24px;
     text-transform: $textcap;
     transition: $transition;
-    background: $themecolor;
+    background: black !important;
     color:$white;
     display: inline-block;
     border-radius:10px;

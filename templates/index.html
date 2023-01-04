@@ -1,5 +1,41 @@
 {% include 'header.html' %}
 {% load static  %}
+
+
+
+
+    <!-- banner starts -->
+    <section class="banner overflow-hidden">
+        <div class="slider top50">
+            <div class="swiper-container">
+                
+                <div class="swiper-wrapper">
+                    {% for slider in slider %}
+                    <div class="swiper-slide">
+                        <div class="slide-inner">
+                            <div class="slide-image" style="background-image:url({{slider.image.url}})"></div>
+                            <div class="swiper-content">
+                                <div class="entry-meta mb-2">
+                                    <h5 class="entry-category mb-0 white">{{slider.text_1}}</h5>
+                                </div>
+                                <h1 class="mb-2 white">sfdnhajfka hbfa</h1>
+                                <p class="white mb-4">{{slider.text_3}}</p>
+                                <a href="{{slider.custom_link}}" class="nir-btn" style= "background: #0BA53C!important;">{{slider.text_4}}sss</a>
+                            </div>
+                            <div class="dot-overlay"></div>
+                        </div> 
+                    </div>   
+                    {% endfor %}
+                </div>
+             
+            </div>
+        </div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </section>
+    <!-- banner ends -->
+
 <!-- banner starts -->
 <section class="banner pt-10 pb-0 overflow-hidden" style="background-image:url({% static 'images/testimonial.png' %});">
     <div class="container">
@@ -155,7 +191,8 @@
         <div class="team-main">
             <div class="row shop-slider">
                 {% for destination in destination %}
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                <a href=" {% url 'destinations'%} ">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
                     <div class="team-list rounded">
                         <div class="team-image">
                             <img src="{{destination.image.url}}" alt="team">
@@ -166,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+            </a>
                 {% endfor %}
             </div>
         </div>

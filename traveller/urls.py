@@ -19,7 +19,8 @@ urlpatterns = [
 
 
     path('book_trip/<int:id>', views.book_trip, name="book_trip"),
-    path('destination_filter/<int:id>', views.destination_filter, name="tours"),
+
+    path('destination_filter/<int:id>', views.destination_filter, name="destination_filter"),
     
     path('summernote/', include('django_summernote.urls')),
 

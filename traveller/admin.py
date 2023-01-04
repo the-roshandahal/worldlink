@@ -14,14 +14,14 @@ class Description(SummernoteModelAdmin):
 
 class BlogField(SummernoteModelAdmin):
     summernote_fields = ('blog')
-# class SliderFields(admin.ModelAdmin):
-#     list_display = ('main_text', 'order',)
+class SliderFields(admin.ModelAdmin):
+    list_display = ('text_1', 'order',)
 class BookingFields(admin.ModelAdmin):
     list_display= ('name', 'tour')
 
 
 admin.site.unregister(Attachment)
-# admin.site.register(Slider,SliderFields)
+admin.site.register(Slider,SliderFields)
 admin.site.register(TourCategory)
 admin.site.register(Destination)
 admin.site.register(Tour,Description)
