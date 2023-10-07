@@ -18,7 +18,7 @@
                                 <div class="entry-meta mb-2">
                                     <h5 class="entry-category mb-0 white">{{slider.text_1}}</h5>
                                 </div>
-                                <h1 class="mb-2 white">sfdnhajfka hbfa</h1>
+                                <h1 class="mb-2 white">{{slider.text_2}}</h1>
                                 <p class="white mb-4">{{slider.text_3}}</p>
                                 <a href="{{slider.custom_link}}" class="nir-btn" style= "background: #0BA53C!important;">{{slider.text_4}}sss</a>
                             </div>
@@ -44,7 +44,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="banner-content text-lg-start text-center">
                         <h4 class="theme mb-0">WELCOME TO THE LAND OF HIMALAYAS</h4>
-                        <h1>Start planning your dream trip with WORLDLINK TREKS</h1>
+                        <h1>Start planning your dream trip with HIMALYAN HUE</h1>
                         <p class="mb-4">The Beginning Of Your Ideal Trek Experience</p>
                         {% comment %} <div class="book-form">
                             <div class="row d-flex align-items-center justify-content-between">
@@ -118,7 +118,7 @@
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h4 class="mb-1 theme1">Let’s make your dream come true</h4>
             <h2 class="mb-1">Customize <span class="theme"> your trek with us</span></h2>
-            <p>Hate Default Trek Packages? Don’t worry! WORLDLINK TREKS allows everyone to customize their own package.</p>
+            <p>Hate Default Trek Packages? Don’t worry! HIMALYAN HUE allows everyone to customize their own package.</p>
         </div>
 
         <!-- why us starts -->
@@ -179,41 +179,69 @@
 <!-- about-us ends -->
 
 <!-- top Destination starts -->
-<section class="our-team pb-6">
-    <div class="container">
+<!--<section class="our-team pb-6">-->
+<!--    <div class="container">-->
 
-        <div class="section-title mb-6 w-75 mx-auto text-center">
-            <h4 class="mb-1 theme1">Top Destinations</h4>
-        <h2 class="mb-1">Explore <span class="theme">Top Destinations</span></h2>
-        <p>Explore the most travelled trekking destinations!
-        </p>
-        </div>
-        <div class="team-main">
-            <div class="row shop-slider">
-                {% for destination in destination %}
-                <a href=" {% url 'destinations'%} ">
-                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-                    <div class="team-list rounded">
-                        <div class="team-image">
-                            <img src="{{destination.image.url}}" alt="team">
-                        </div>
-                        <div class="team-content text-center p-3 bg-theme">
-                            <h4 class="mb-0 white">{{destination.location}}</h4>
+<!--        <div class="section-title mb-6 w-75 mx-auto text-center">-->
+<!--            <h4 class="mb-1 theme1">Top Destinations</h4>-->
+<!--        <h2 class="mb-1">Explore <span class="theme">Top Destinations</span></h2>-->
+<!--        <p>Explore the most travelled trekking destinations!-->
+<!--        </p>-->
+<!--        </div>-->
+<!--        <div class="team-main">-->
+<!--            <div class="row shop-slider">-->
+<!--                {% for destination in destination %}-->
+<!--                <a href=" {% url 'destinations'%} ">-->
+<!--                    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">-->
+<!--                    <div class="team-list rounded">-->
+<!--                        <div class="team-image">-->
+<!--                            <img src="{{destination.image.url}}" alt="team">-->
+<!--                        </div>-->
+<!--                        <div class="team-content text-center p-3 bg-theme">-->
+<!--                            <h4 class="mb-0 white">{{destination.location}}</h4>-->
                             
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </a>-->
+<!--                {% endfor %}-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+    <section class="trending pb-0 pt-6">
+        <div class="container">
+            <div class="section-title mb-6 w-50 mx-auto text-center">
+                <h4 class="mb-1 theme1">Top Destinations</h4>
+                <h2 class="mb-1">Explore <span class="theme">Top Destinations</span></h2>
+                <p>Explore the most travelled trekking destinations!</p>
+            </div>
+            <div class="row align-items-center">
+                {% for destination in destination %}
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item1">
+                        <div class="trend-image position-relative rounded">
+                            <img src="{{destination.image.url}}" alt="image">
+                            <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
+                                <div class="trend-content-title">
+                                    <!--<h5 class="mb-0"><a href="#" class="theme1">{{destination.location}}</a></h5>-->
+                                    <h5 class="mb-0"><a href=" {% url 'destination_filter' id=destination.id %} " class="theme1">{{destination.location}}</a></h5>
+                                    <h3 class="mb-0 white"></h3>
+                                </div>
+                            </div>
+                            <div class="color-overlay"></div>
                         </div>
                     </div>
                 </div>
-            </a>
                 {% endfor %}
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- top Destination ends -->
 
 <!-- about-us starts -->
-<section class="about-us pt-0" style="background-image:url({% static 'images/bg/bg-trans.png' %});">
+<section class="about-us pt-0 mt-2" style="background-image:url({% static 'images/bg/bg-trans.png' %});">
     <div class="container">
         <div class="about-image-box">
             <div class="row d-flex align-items-center justify-content-between">
@@ -225,7 +253,7 @@
                 <div class="col-lg-6 mb-4 ps-4">
                     <div class="about-content text-center text-lg-start mb-4">
                         <h4 class="theme d-inline-block mb-0">Let’s Get To Know Each Other</h4>
-                        <h2 class="border-b mb-2 pb-1">WHY WORLDLINK TREKS?</h2>
+                        <h2 class="border-b mb-2 pb-1">WHY HIMALYAN HUE?</h2>
                         <p class="border-b mb-2 pb-2">We have a team of experienced and fully trained trekking guides, as well as all necessary equipment, to ensure that your trip is both memorable and safe. Our reliable trekking packages have been loved by many. We don't compromise on the services and we aim to keep offering enjoyable experiences to all our clients!</p>
                         <div class="about-listing">
                             <ul class="d-flex justify-content-between">
@@ -297,7 +325,7 @@
             <div class="col-lg-7">
                 <div class="section-title text-center text-lg-start">
                     <h4 class="mb-1 theme1">Top Pick</h4>
-                    <h2 class="mb-1">Best <span class="theme">Tour Packages</span></h2>
+                    <h2 class="mb-1">Featured <span class="theme">Tour Packages</span></h2>
                     <p>These treks have captured the hearts of many trekkers. We are convinced that you will enjoy these adventurous hikes, including treks to the beautiful mountains.</p>
                 </div>
             </div>
@@ -338,139 +366,6 @@
     </div>
 </section>
 <!-- best tour Ends -->
-
-
-
-{% comment %} <!-- offer Packages Starts -->
-<section class="trending pb-0 pt-4">
-    <div class="container">
-        <div class="section-title mb-6 w-75 mx-auto text-center">
-            <h4 class="mb-1 theme1">Top Offers</h4>
-            <h2 class="mb-1">Special <span class="theme">Offers & Discount </span> Packages</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-            </p>
-        </div>
-        <div class="trend-box">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                    <div class="trend-item rounded box-shadow bg-white">
-                        <div class="trend-image position-relative">
-                            <img src="{% static 'images/trending/trending3.jpg' %}" alt="image" class="">
-                            <div class="ribbon ribbon-top-left"><span class="fw-bold">20% OFF</span></div>
-                            <div class="color-overlay"></div>
-                        </div>
-                        <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Croatia</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Piazza Castello</a></h3>
-                            <div class="rating-main d-flex align-items-center pb-2">
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                </div>
-                                <span class="ms-2">(12)</span>
-                            </div>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
-                                esse cillum</p>
-                            <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
-                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $170.00</span> | Per person
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                    <div class="trend-item box-shadow rounded bg-white">
-                        <div class="trend-image position-relative">
-                            <img src="{% static 'images/trending/trending1.jpg' %}" alt="image">
-                            <div class="ribbon ribbon-top-left"><span class="fw-bold">30% OFF</span></div>
-                            <div class="color-overlay"></div>
-                        </div>
-                        <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Greece</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Santorini, Oia</a></h3>
-                            <div class="rating-main d-flex align-items-center pb-2">
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                </div>
-                                <span class="ms-2">(38)</span>
-                            </div>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
-                                esse cillum</p>
-                            <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
-                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $180.00</span> | Per person
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="trend-item box-shadow rounded bg-white">
-                        <div class="trend-image position-relative">
-                            <img src="{% static 'images/trending/trending2.jpg' %}" alt="image">
-                            <div class="ribbon ribbon-top-left"><span class="fw-bold">15% OFF</span></div>
-                            <div class="color-overlay"></div>
-                        </div>
-                        <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme mb-1"><i class="flaticon-location-pin"></i> Maldives</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Hurawalhi Island</a></h3>
-                            <div class="rating-main d-flex align-items-center pb-2">
-                                <div class="rating">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                </div>
-                                <span class="ms-2">(18)</span>
-                            </div>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit
-                                esse cillum</p>
-                            <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
-                                    <p class="mb-0"><span class="theme fw-bold fs-5"> $260.00</span> | Per person
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- offer Packages Ends --> {% endcomment %}
-
 
 <!-- testomonial start -->
 <section class="testimonial pt-9" style="background-image:url({% static 'images/testimonial.png' %}s)">
@@ -521,13 +416,15 @@
                 <p>We have partnered with many other companies to offer our clients with the best trek experience they will ever have.</p>
             </div>
             <div class="row align-items-center partner-in partner-slider">
+                {% for partner in partner %}
                 <div class="col-md-3 col-sm-6">
-                    {% for partner in partner %}
+                    
                     <div class="partner-item p-4 py-2 rounded bg-lgrey">
                         <img src="{{partner.logo.url}}" alt="{{partner.name}}">
                     </div>
-                    {% endfor %}
+                   
                 </div>
+                 {% endfor %}
             </div>
         </div>
     </section>

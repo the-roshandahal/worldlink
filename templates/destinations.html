@@ -20,7 +20,7 @@
             <div class="section-title mb-6 w-50 mx-auto text-center">
                 <h4 class="mb-1 theme1">Top Destinations</h4>
                 <h2 class="mb-1">Explore <span class="theme">Top Destinations</span></h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <p>Expolre our top destinations</p>
             </div>
             <div class="row align-items-center">
                 {% for destination in destination %}
@@ -30,7 +30,7 @@
                             <img src="{{destination.image.url}}" alt="image">
                             <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                                 <div class="trend-content-title">
-                                    <h5 class="mb-0"><a href="#" class="theme1">{{destination.location}}</a></h5>
+                                    <!--<h5 class="mb-0"><a href="#" class="theme1">{{destination.location}}</a></h5>-->
                                     <h5 class="mb-0"><a href=" {% url 'destination_filter' id=destination.id %} " class="theme1">{{destination.location}}</a></h5>
                                     <h3 class="mb-0 white"></h3>
                                 </div>

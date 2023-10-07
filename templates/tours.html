@@ -82,13 +82,15 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
             </div>
             <div class="row align-items-center partner-in partner-slider">
+                {% for partner in partner %}
                 <div class="col-md-3 col-sm-6">
-                    {% for partner in partner %}
+                    
                     <div class="partner-item p-4 py-2 rounded bg-lgrey">
                         <img src="{{partner.logo.url}}" alt="{{partner.name}}">
                     </div>
-                    {% endfor %}
+                   
                 </div>
+                 {% endfor %}
             </div>
         </div>
     </section>
