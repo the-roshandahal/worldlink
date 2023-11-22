@@ -171,3 +171,7 @@ JAZZMIN_SETTINGS = {
     "site_logo": "logo.png",
 
 }
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "yeti",
+}
